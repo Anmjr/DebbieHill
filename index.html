@@ -56,7 +56,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[37.98819881726645,-83.462179923327],[38.08207913546886,-83.26839806575548]]);
+        }).fitBounds([[38.03523479734685,-83.3888217797852],[38.041102075987965,-83.37671041368696]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -208,7 +208,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(46,110,39,0.5882352941176471)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_AreaBound_2');
@@ -216,7 +216,7 @@
         map.getPane('pane_AreaBound_2').style['mix-blend-mode'] = 'normal';
         var layer_AreaBound_2 = new L.geoJson(json_AreaBound_2, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_AreaBound_2',
             layerName: 'layer_AreaBound_2',
             pane: 'pane_AreaBound_2',
@@ -268,7 +268,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(31,120,180,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_CaveRunLake_3');
@@ -276,7 +276,7 @@
         map.getPane('pane_CaveRunLake_3').style['mix-blend-mode'] = 'normal';
         var layer_CaveRunLake_3 = new L.geoJson(json_CaveRunLake_3, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_CaveRunLake_3',
             layerName: 'layer_CaveRunLake_3',
             pane: 'pane_CaveRunLake_3',
@@ -303,7 +303,8 @@
                         <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ELEV'] !== null ? autolinker.link(String(feature.properties['ELEV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">ELEV</th>\
+                        <td class="visible-with-data" id="ELEV">' + (feature.properties['ELEV'] !== null ? autolinker.link(String(feature.properties['ELEV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -532,7 +533,8 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
